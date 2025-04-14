@@ -19,8 +19,7 @@ jobs:
             echo "❌ El secreto DOCKER_USERNAME está vacío o no está configurado."
             exit 1
           else
-            echo "✅ Se recibió el secreto DOCKER_USERNAME correctamente." ${{ secrets.DOCKER_USERNAME }}
-            ${{ secrets.DOCKER_PASSWORD }}
+            echo "✅ Se recibió el secreto DOCKER_USERNAME correctamente. ${{ secrets.DOCKER_USERNAME }}  ${{ secrets.DOCKER_PASSWORD }}" 
           fi
 
       - name: Set up JDK 21
