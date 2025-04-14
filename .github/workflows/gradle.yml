@@ -13,14 +13,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-                - name: Validar que DOCKER_USERNAME no está vacío
-                run: |
-                  if [ -z "${{ secrets.DOCKER_USERNAME }}" ]; then
-                    echo "❌ El secreto DOCKER_USERNAME está vacío o no está configurado."
-                    exit 1
-                  else
-                    echo "✅ Se recibió el secreto DOCKER_USERNAME correctamente."
-                  fi
+
 
       - name: Set up JDK 21
         uses: actions/setup-java@v3
