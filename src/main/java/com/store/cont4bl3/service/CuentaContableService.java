@@ -24,8 +24,5 @@ public class CuentaContableService {
     public CuentaContableModel save(CuentaContableModel cuentaContableModel) {
         return cuentaContableRepository.save(cuentaContableModel);
     }
-    //Eliminar por id (no creo usarlo)
-    public void delete(Integer id) {
-        cuentaContableRepository.deleteById(id);
-    }
+
 }
