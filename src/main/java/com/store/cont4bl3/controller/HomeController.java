@@ -11,7 +11,7 @@ public class HomeController {
         return "Hello home";
     }
     @GetMapping("/funciona")
-    public String secured() {
+    public String funciona() {
         return "Funciona el CICD";
     }
 }
