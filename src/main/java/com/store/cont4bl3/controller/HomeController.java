@@ -10,7 +10,7 @@ public class HomeController {
     public String home() {
         return "Hello home";
     }
-    @GetMapping("/Funcionando")
+    @GetMapping("/funcionando")
     public String secured() {
         return "Funciona el CICD";
     }
