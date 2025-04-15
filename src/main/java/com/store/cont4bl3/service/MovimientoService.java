@@ -58,7 +58,14 @@ public class MovimientoService {
     private void actualizarLibroMayor(CuentaContableModel cuenta, double debe, double haber, String descripcion) {
         LibroMayorModel ultimoLibroMayor = libroMayorRepository.findTopByCuentaIdCuentaOrderByFechaDesc(cuenta.getIdCuenta());
         double saldoAnterior = (ultimoLibroMayor != null) ? ultimoLibroMayor.getSaldoActual() : cuenta.getSaldoInicial();
-        double saldoActual = saldoAnterior + debe - haber;
+        double saldoActual;
+
+        //Se crea para saber el tipo de cuenta y que operacion matematica usar
+        switch (cuenta.getTipoCuenta().toLowerCase()){
+            case "activo", "gastos" -> saldoActual = saldoAnterior + debe - haber;
+            case "pasivo", "patrimonio", "ingresos" -> saldoActual = saldoAnterior - debe + haber;
+            default -> saldoActual = saldoAnterior; //fallback Por si no ocurre nada
+        }
 
         LibroMayorModel nuevoRegistro = new LibroMayorModel();
         nuevoRegistro.setCuenta(cuenta);
