@@ -24,7 +24,7 @@ public class MovimientoService {
     @Autowired
     CuentaContableRepository cuentaContableRepository;
 
-    //Buscar todos lod movimientos
+    //Buscar todos los movimientos
     public List<MovimientoModel> findAll() {
         return movimientoRepository.findAll();
     }
