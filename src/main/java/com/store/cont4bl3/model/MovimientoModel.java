@@ -31,4 +31,8 @@ public class MovimientoModel {
     @JoinColumn(name = "id_cuenta_haber")
     private CuentaContableModel cuentaHaber;
 
+    @Column(name = "usuario")
+    private String usuario;
+
+
 }
