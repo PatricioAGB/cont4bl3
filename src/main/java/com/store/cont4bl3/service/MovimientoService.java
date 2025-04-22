@@ -40,7 +40,6 @@ public class MovimientoService {
     public MovimientoDto save(MovimientoDto dto) {
         MovimientoModel model = new MovimientoModel();
 
-        model.setIdMovimiento(generarIdMovimiento());
         model.setFechaMovimiento(LocalDate.now());
         model.setMonto(dto.getMonto());
         model.setDescripcion(dto.getDescripcion());
@@ -86,16 +85,7 @@ public class MovimientoService {
         libroMayorRepository.save(nuevoRegistro);
     }
 
-    // Generar ID entre 15 y 30 dígitos
-    private BigInteger generarIdMovimiento() {
-        int length = new Random().nextInt(16) + 15; // 15-30
-        StringBuilder sb = new StringBuilder();
-        sb.append((int) (Math.random() * 9) + 1); // Primer dígito distinto de 0
-        for (int i = 1; i < length; i++) {
-            sb.append((int) (Math.random() * 10));
-        }
-        return new BigInteger(sb.toString());
-    }
+
 
     // Mapear modelo a DTO
     private MovimientoDto toDto(MovimientoModel model) {
