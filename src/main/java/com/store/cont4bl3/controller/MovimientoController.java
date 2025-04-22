@@ -84,14 +84,11 @@ public class MovimientoController {
         }
         throw new RuntimeException("No se pudo obtener el usuario desde el JWT");
     }
-
-
-
         @GetMapping("/debug-token")
         public ResponseEntity<String> debugToken(@RequestHeader("Authorization") String authorizationHeader) {
-            System.out.println("🔐 JWT recibido: " + authorizationHeader);
+            System.out.println(" JWT recibido: " + authorizationHeader);
             return ResponseEntity.ok("Token recibido");
         }
     }
 
-}
+
