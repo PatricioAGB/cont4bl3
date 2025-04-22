@@ -7,8 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtUtils {
 
-    private final String SECRET_KEY = "ProyectoCont4bl3ACL"; // usa la misma que en auth-service
-
+    private final String SECRET_KEY = "D@c9Jk#7wY!qZx8R3tGfLm2VbNpAsE4u";
     public Claims extractClaims(String token) {
         return Jwts.parser()
                 .setSigningKey(SECRET_KEY.getBytes())
