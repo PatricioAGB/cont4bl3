@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 
 
@@ -17,7 +18,8 @@ public class MovimientoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idMovimiento;
+    private BigInteger idMovimiento;
+
 
     private LocalDate fechaMovimiento;
     private Double monto;
