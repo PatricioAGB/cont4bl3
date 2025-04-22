@@ -11,6 +11,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -83,4 +84,14 @@ public class MovimientoController {
         }
         throw new RuntimeException("No se pudo obtener el usuario desde el JWT");
     }
+
+
+
+        @GetMapping("/debug-token")
+        public ResponseEntity<String> debugToken(@RequestHeader("Authorization") String authorizationHeader) {
+            System.out.println("🔐 JWT recibido: " + authorizationHeader);
+            return ResponseEntity.ok("Token recibido");
+        }
+    }
+
 }
