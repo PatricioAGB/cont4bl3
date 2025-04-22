@@ -9,11 +9,19 @@ public class JwtUtils {
 
     private final String SECRET_KEY = "D@c9Jk#7wY!qZx8R3tGfLm2VbNpAsE4u";
     public Claims extractClaims(String token) {
+        if (token.startsWith("Bearer ")) {
+            token = token.substring(7); // quitar "Bearer "
+            System.out.println(">>> Token recibido: " + token);
+            System.out.println(">>> Secret usada: " + SECRET_KEY);
+        }
         return Jwts.parser()
                 .setSigningKey(SECRET_KEY.getBytes())
                 .parseClaimsJws(token)
                 .getBody();
+
     }
+
+
 
     public String extractUsername(String token) {
         Claims claims = extractClaims(token);
