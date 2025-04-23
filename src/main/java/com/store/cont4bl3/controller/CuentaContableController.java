@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -32,8 +33,8 @@ public class CuentaContableController {
     @ApiResponse(responseCode = "200", description = "Cuentas Contables encontradas")
     @ApiResponse(responseCode = "404", description = "Cuentas Contables no encontradas")
     @ApiResponse(responseCode = "500", description = "Error interno del server")
-    public Page<CuentaContableDto> getAll(Pageable pageable) {
-        return cuentaContableService.findAll(pageable);
+    public List<CuentaContableDto> getAll() {
+        return cuentaContableService.getAll();
     }
     //endPoint para obtener las cuentas por id
     @GetMapping("/{id}")

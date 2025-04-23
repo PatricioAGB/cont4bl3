@@ -10,8 +10,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 
 
-
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CuentaContableService {
@@ -20,10 +21,13 @@ public class CuentaContableService {
     @Autowired
     CuentaContableRepository cuentaContableRepository;
     //Buscar Todas las cuentas contables
-    public Page<CuentaContableDto> findAll(Pageable pageable) {
-        return cuentaContableRepository.findAll(pageable)
-                .map(this::toDto);
+    public List<CuentaContableDto> getAll() {
+        return cuentaContableRepository.findAll()
+                .stream()
+                .map(this::toDto)
+                .collect(Collectors.toList());
     }
+
     //Buscar por Id
     public Optional<CuentaContableModel> findById(Integer id) {
         return cuentaContableRepository.findById(id);
